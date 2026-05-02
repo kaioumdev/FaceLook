@@ -23,7 +23,7 @@ const LoginPage = () => {
             </div>
           </div>
           <div className="card">
-            <form className="border-b border-[#3F3F3F] pb-10 lg:pb-[60px]">
+            {/* <form className="border-b border-[#3F3F3F] pb-10 lg:pb-[60px]">
               <div className="form-control">
                 <label className="auth-label" for="email">
                   Email
@@ -52,7 +52,7 @@ const LoginPage = () => {
               >
                 Login
               </button>
-            </form>
+            </form> */}
             <LoginForm></LoginForm>
             <div className="py-4 lg:py-6">
               <p className="text-center text-xs text-gray-600/95 lg:text-sm">
