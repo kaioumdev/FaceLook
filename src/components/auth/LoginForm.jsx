@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import Field from "../common/Field";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContex } from "../../context";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const {setAuth} = useContext(AuthContex);
   const {
     register,
     handleSubmit,
@@ -12,6 +15,8 @@ const LoginForm = () => {
 
   const submitForm = (formData) => {
     console.log(formData);
+    const user = {...formData};
+    setAuth({user})
     navigate("/")
   };
 
