@@ -3,21 +3,41 @@ import Field from "../common/Field";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContex } from "../../context";
+import axios from "axios";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const {setAuth} = useContext(AuthContex);
+  const { setAuth } = useContext(AuthContex);
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setError
   } = useForm();
 
-  const submitForm = (formData) => {
-    console.log(formData);
-    const user = {...formData};
-    setAuth({user})
-    navigate("/")
+  const submitForm = async (formData) => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/auth/login`,
+        formData,
+      );
+      if (response.status === 200) {
+        const { token, user } = response.data;
+        if (token) {
+          const authToken = token.token;
+          const refreshToken = token.refreshToken;
+          console.log(`Login time auth token: ${authToken}`);
+          setAuth({ user, authToken, refreshToken });
+          navigate("/");
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      setError("root.random", {
+        type: "random",
+        message: `User with email ${formData.email} is not found`
+      })
+    }
   };
 
   return (
@@ -54,6 +74,7 @@ const LoginForm = () => {
           id="password"
         />
       </Field>
+      <p>{errors?.root?.random?.message}</p>
 
       <Field>
         <button

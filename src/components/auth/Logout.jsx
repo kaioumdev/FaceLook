@@ -1,4 +1,3 @@
-import React from 'react'
 import LogOut from '../../assets/icons/logout.svg';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
