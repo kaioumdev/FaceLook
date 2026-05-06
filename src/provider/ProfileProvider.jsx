@@ -6,7 +6,7 @@ const ProfileProvider = ({children}) => {
     const [state, dispatch] = useReducer(profileReducer, initialState);
 
     return (
-        <ProfileContext.Provider>
+        <ProfileContext.Provider value={{state, dispatch}}>
             {children}
         </ProfileContext.Provider>
     )
