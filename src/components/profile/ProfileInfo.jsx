@@ -1,4 +1,3 @@
-import React from "react";
 import { useProfile } from "../../hooks/useProfile";
 import ProfileImage from "./ProfileImage";
 import Bio from "./Bio";
