@@ -1,9 +1,7 @@
-import React from 'react'
+import PostCard from "./PostCard";
 
-const PostList = () => {
-  return (
-    <div>PostList</div>
-  )
-}
+const PostList = ({ posts }) => {
+  return !!posts && posts.map((post) => <PostCard key={post.id} post={post} />);
+};
 
-export default PostList
+export default PostList;
