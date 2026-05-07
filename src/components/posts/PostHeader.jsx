@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { useAuth } from '../hooks/useAuth';
-import useAxios from '../hooks/useAxios';
-import { actions } from '../actions';
+import { useAuth } from '../../hooks/useAuth';
+import useAxios from '../../hooks/useAxios';
+import { actions } from '../../actions';
 import TimeIcon from '../assets/icons/time.svg';
 import ThreeDotsIcon from '../assets/icons/3dots.svg';
 import EditIcon from '../assets/icons/edit.svg';
 import DeleteIcon from '../assets/icons/delete.svg';
-import { getDateDifferenceFromNow } from '../utils';
-import { useAvatar } from '../hooks/useAvatar';
+import { getDateDifferenceFromNow } from '../../utils';
+import { useAvatar } from '../../hooks/useAvatar';
 
 const PostHeader = ({ post }) => {
     const [showAction, setShowAction] = useState(false);

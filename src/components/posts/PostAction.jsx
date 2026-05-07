@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useAuth } from '../hooks/useAuth';
-import useAxios from '../hooks/useAxios';
+import { useAuth } from '../../hooks/useAuth';
+import useAxios from '../../hooks/useAxios';
 import CommentIcon from "../../assets/icons/comment.svg";
 import LikeFilledIcon from "../../assets/icons/like-filled.svg";
 import LikeIcon from "../../assets/icons/like.svg";
